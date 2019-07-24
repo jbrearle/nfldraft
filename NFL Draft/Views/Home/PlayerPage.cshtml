@@ -1,0 +1,55 @@
+﻿@model IList<Player>
+@{
+    ViewData["Title"] = "PlayerPage";
+}
+
+<h1>Players</h1>
+<table class="table table-bordered table-striped">
+    <tr id="PlayerListHeader">
+        <td><strong>Player Name</strong></td>
+        <td><strong>Position</strong></td>
+        <td><strong>Availability</strong></td>
+    </tr>
+    @foreach (Player player in Model)
+    {
+        <tr>
+            <td>
+                @player.FirstName
+            @player.LastName
+        </td>
+        @if (player.CategoryId == 1)
+        {
+            <td>QuarterBack</td>
+        }
+        else if (player.CategoryId == 2)
+        {
+            <td>Running Back</td>
+        }
+        else if (player.CategoryId == 3)
+        {
+            <td>Wide Reveiver</td>
+        }
+        else if (player.CategoryId == 4)
+        {
+            <td>Tight End</td>
+        }
+        else if (player.CategoryId == 5)
+        {
+            <td>Kicker</td>
+        }
+        else if (player.CategoryId == 6)
+        {
+            <td>Defense</td>
+        }
+        @if (player.IsAvailable == true)
+        {
+            <td>Available</td>
+        }
+        else
+        {
+            <td>Taken</td>
+        }
+    </tr>
+
+}
+</table>
